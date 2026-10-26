@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Review</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="bar">
+      <div class="bar-row">
+        <span class="branch" id="branch"><svg class="i"><use href="#i-branch" /></svg><b id="branch-name">…</b></span>
+        <span class="meta" id="summary"></span>
+        <span class="grow"></span>
+        <button class="icon-btn" id="collapse-all" title="Collapse / expand all (x)"><svg class="i"><use href="#i-fold" /></svg></button>
+        <button class="icon-btn" id="refresh" title="Refresh (r)"><svg class="i"><use href="#i-refresh" /></svg></button>
+      </div>
+      <div class="bar-row">
+        <select id="mode" aria-label="What to review">
+          <option value="uncommitted">Uncommitted changes</option>
+          <option value="history">History</option>
+          <option value="compare">Compare with branch</option>
+        </select>
+        <select id="base" aria-label="Base branch" hidden></select>
+        <span class="grow"></span>
+        <button class="text-btn danger" id="discard-all" title="Stash every change (git stash pop restores)">
+          <svg class="i"><use href="#i-undo" /></svg><span>Discard all</span>
+        </button>
+      </div>
+      <div id="commits" hidden></div>
+      <div id="commit-info" hidden></div>
+    </header>
+    <main id="files" aria-live="polite"></main>
+    <div id="toast" role="status" hidden></div>
+
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5" /><circle cx="6" cy="18" r="2.5" /><circle cx="18" cy="6" r="2.5" /><path d="M6 8.5v7M18 8.5c0 5-6 4-11 8" /></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" /><path d="M14 3v5h5" /></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7" /><path d="M20 4v7h-7" /></symbol>
+      <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5" /><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11" /></symbol>
+      <symbol id="i-open" viewBox="0 0 24 24"><path d="M14 4h6v6" /><path d="M20 4 10 14" /><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+      <symbol id="i-fold" viewBox="0 0 24 24"><path d="m7 20 5-5 5 5" /><path d="m7 4 5 5 5-5" /></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M12 4v16" /><path d="m8 8 4-4 4 4" /><path d="m8 16 4 4 4-4" /></symbol>
+      <symbol id="i-square" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" /><path d="m8.5 12 2.5 2.5 4.5-5" /></symbol>
+      <symbol id="i-partial" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" /><path d="M8.5 12h7" /></symbol>
+    </svg>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

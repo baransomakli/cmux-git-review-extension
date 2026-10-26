@@ -1,0 +1,3 @@
+allowBuilds:
+  # Installs the platform-specific esbuild binary.
+  esbuild: true
