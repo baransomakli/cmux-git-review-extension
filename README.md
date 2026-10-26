@@ -97,3 +97,7 @@ pnpm typecheck && pnpm build && pnpm test
 ```
 
 `src/` sunucu ve CLI (TypeScript → `dist/`), `web/` panel arayüzü (esbuild → `dist/web/`).
+
+## Lisans
+
+[MIT](LICENSE)
